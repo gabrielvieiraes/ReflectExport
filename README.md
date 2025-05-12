@@ -48,25 +48,28 @@ ReflectExport is a lightweight library designed to simplify the process of expor
 ### Example: Exporting Users to CSV
 
 1. Annotate your model properties with `ExportColumnAttribute` and `ExportColumnNameAttribute`:
-   
-	public class User { [ExportColumn] [ExportColumnName("Identificador")] public int Id { get; set; }
-	   [ExportColumn]
-	   [ExportColumnName("Primeiro nome")]
-	   public string FirstName { get; set; }
+```
+public class User {
+   [ExportColumn]
+   [ExportColumnName("Identificador")]
+   public int Id { get; set; }
+   [ExportColumn]
+   [ExportColumnName("Primeiro nome")]
+   public string FirstName { get; set; }
 
-	   // Additional properties...
-	}
-
-2. Use the `ExportService` to export data:
-   
-	var users = new List<User> { new User { Id = 1, FirstName = "John" }, new User { Id = 2, FirstName = "Jane" } };
-	var exportService = new ExportService(); var csv = exportService.ExportCSV(users); Console.WriteLine(csv);
-
+   // Additional properties...
+}
+```
+3. Use the `ExportService` to export data:
+```
+var users = new List<User> { new User { Id = 1, FirstName = "John" }, new User { Id = 2, FirstName = "Jane" } };
+var exportService = new ExportService(); var csv = exportService.ExportCSV(users); Console.WriteLine(csv);
+```
 
 ### Example: Exporting Users to JSON
-
-	var json = exportService.ExportJson(users); Console.WriteLine(json);
-
+```
+var json = exportService.ExportJson(users); Console.WriteLine(json);
+```
 
 ## Contributing
 
